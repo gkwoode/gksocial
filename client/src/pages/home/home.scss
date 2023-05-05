@@ -1,0 +1,22 @@
+@import "../../style.scss";
+
+.home{
+    // z-index: -1;
+    @include themify($themes){
+        background-color: themed(bgColorSoft);
+        padding: 20px 20px;
+
+        @include mobile{
+            padding: 20px 0;
+            width: 100vw;
+        }
+
+        @include tablet{
+            padding: 20px 0;
+        }
+
+        .container{
+            background-color: themed(bgColor);
+        }
+    }
+}

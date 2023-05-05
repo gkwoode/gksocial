@@ -1,0 +1,102 @@
+@import "../../style.scss";
+
+.leftbar{
+    @include themify($themes){
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: sticky;
+    top: 60px;
+    height: calc(100vh - 60px);
+    overflow: scroll;
+    background-color: themed(bgColor);
+    color: themed(textColor);
+
+    @include mobile{
+        display: none;
+    }
+
+    @include tablet{
+        flex: 3;
+    }
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px 15px;
+
+        .menu{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 5px;
+
+            // .other{
+            //     padding: 5px 15px;
+            //     font-size: 14px;
+            // }
+
+            .user{
+                padding: 0 10px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                cursor: pointer;
+                gap: 15px;
+
+                img{
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                span{
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+
+            .item{
+                padding: 0 10px;
+                width: 90%;
+                height: 40px;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                cursor: pointer;
+                gap: 15px;
+                transition: 1s ease-in-out;
+
+                    &:hover{  
+                        background-color: themed(bgColorSoft);
+                    }
+
+                img{
+                    width: 20px;
+                    // height: 30px;
+                }     
+                
+                span{
+                    font-size: 16px;
+                }
+            }
+        }
+
+        hr{
+            margin: 10px;
+            border: none;
+            height: 0.7px;
+            background-color: themed(borderColor);
+            opacity: 0.7;
+        }
+    }
+}
+}

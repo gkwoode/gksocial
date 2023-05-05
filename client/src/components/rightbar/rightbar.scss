@@ -1,0 +1,182 @@
+@import "../../style.scss";
+
+.rightbar{
+    @include themify($themes){
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: sticky;
+    top: 60px;
+    height: calc(100vh - 60px);
+    overflow: scroll;
+    background-color: themed(bgColorSoft);
+    color: themed(textColor);
+    padding-top: 5px;
+
+    @include mobile{
+        display: none;
+    }
+
+    @include tablet{
+        display: none;
+    }
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 15px 0;
+        padding-right: 20px;
+        gap: 20px;
+
+        // Three item containers: Friend Requests, Latest Activities, and Onilne Contacts
+        .item{
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 15px;
+            justify-content: space-between;
+            background-color: themed(bgColor);
+            box-shadow: -1px 1px 1px 1px rgba(0,0,0,0.15);
+            -webkit-box-shadow: -1px 1px 1x 1px rgba(0,0,0,0.15);
+            -moz-box-shadow: -1px 1px 1px 1px rgba(0,0,0,0.15);
+
+            .contacts{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                // justify-items: center;
+
+                span{
+                    padding-top: 5px;
+                }
+
+                .contactsIcons{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 5px;
+                    align-items: center;
+                    justify-content: center;                    
+
+                    .icon{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 33px;
+                        height: 33px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        cursor: pointer;
+                        transition: 1s all ease-in-out;
+
+                        &:hover{
+                            background-color: themed(bgColorSoft);
+                        }
+                    }
+                }
+            }
+
+            // Fonts: Heading styling
+            span{
+                font-size: 18px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+            .user{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
+                // margin: 20px 0;
+
+                .userInfo{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 5px;
+                    position: relative;
+
+                    img{
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        cursor: pointer;
+                    }
+
+                    .online{
+                        width: 7px;
+                        height: 7px;
+                        border-radius: 50%;
+                        background-color: green;
+                        position: absolute;
+                        top: 0;
+                        left: 22px;
+                    }
+
+                    // Fonts: Name and activity styling
+                    p{
+                        font-size: 14px;
+                        color: themed(textColorSoft);
+
+                        span{
+                            font-weight: 500;
+                            color: themed(textColor);
+                        }
+                    }
+
+                    span{
+                        font-size: 14px;
+                        font-weight: normal;
+                    }
+                }
+
+                // style time updates on latest activities
+                .time{
+                    display: flex;
+                    justify-content: flex-end;
+                    right: 0;
+                    font-size: 14px;
+                    font-weight: normal;
+                    color: themed(textColorSoft);
+                    cursor: default;
+                }
+
+                // Buttons: Accept and Decline styling
+                .buttons{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 5px;
+
+                    button{
+                        border: none;
+                        font-weight: 600;
+                        cursor: pointer;
+                        padding: 5px 10px;
+                        border-radius: 5px;
+
+                        &:first-child{
+                            background-color: #0054b4;
+                            color: white;
+                        }
+
+                        &:last-child{
+                            background-color: #D21404;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}

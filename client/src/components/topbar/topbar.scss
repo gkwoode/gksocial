@@ -1,0 +1,243 @@
+@import "../../style.scss";
+
+.topbar{
+    @include themify($themes){
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 40px;
+        // width: 100vw; //Work on this
+        padding: 10px 20px;
+        background-color: themed(bgColor);
+        border-bottom: 1px solid themed(borderColor);
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        color: themed(textColor);
+        top: 0;
+        position:-webkit-sticky;
+        position:-moz-sticky;
+        position:-ms-sticky;
+        position:-o-sticky;
+        position: sticky;
+        z-index: 1;
+
+        @include mobile {
+            // width: 100%;
+            padding: 10px 15px;
+        }
+
+        // Left items
+        .left{
+            display: flex;
+            flex: 1;
+            align-items: center;
+            // justify-content: space-between;
+            gap: 100px;
+
+            @include tablet {
+                gap: 5px;
+            }
+
+            span{
+                font-size: 30px;
+                font-weight: 600;
+                color: themed(logoColor);
+                padding-right: 50px;
+
+                @include mobile {
+                    padding-right: 0;
+                }
+
+                @include tablet {
+                    padding-right: 10px;
+                }
+            }
+
+            .icons{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                object-fit: cover;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                transition: 1s all ease-in-out;
+
+                @include mobile {
+                    display: none;
+                }
+
+                @include tablet {
+                    display: none;
+                }
+    
+                .icon{
+                    font-size: 24px;
+                    color: themed(textColor);
+                }
+    
+                &:hover{
+                    background-color: themed(bgColorSoft);
+                }
+            }
+
+            // Search bar
+            .search{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                background-color: thmemed(bgColor);
+                padding: 5px;
+                border-radius: 50px;
+                border: 1px solid themed(borderColor);
+                margin-left: 10px;
+                width: 50%;
+
+                @include mobile{
+                    display: none;
+                }
+
+                @include tablet{
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+
+                .icon{
+                    cursor: pointer;
+                    // color: themed(textColorSoft);
+                }
+
+                input{
+                    border: none;
+                    outline: none;
+                    background-color: transparent;
+                    padding: 5px;
+                    font-size: 16px;
+                    width: 85%;
+                    color: themed(textColor);
+
+                    @include tablet{
+                        // width: 120px;
+                    }
+                }
+            }
+        }
+
+        // Right items
+        .right{
+            // flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+
+            @include tablet {
+                gap: 5px;
+            }
+
+            .icons{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                object-fit: cover;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                transition: 1s all ease-in-out;
+
+                @include mobile {
+                    display: none;
+                }
+
+                @include tablet {
+                    display: none;
+                }
+    
+                .icon{
+                    font-size: 24px;
+                    color: themed(textColor);
+                }
+    
+                &:hover{
+                    background-color: themed(bgColorSoft);
+                }
+            }
+
+            // .darkThemeIcon{
+            //     display: none;
+            // }
+
+            .mobileIcon{
+                @include mobile{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .icon{
+                        font-size: 24px;
+                        color: themed(textColor);
+                    }
+                }
+
+                @include tablet{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .icon{
+                        font-size: 24px;
+                        color: themed(textColor);
+                    }
+                }
+            }
+
+            .user{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                cursor: pointer;
+                margin-left: 30px;
+
+                @include mobile {
+                    margin-left: 10px;
+                }
+
+                @include tablet {
+                    margin-left: 10px;
+                }
+
+                img{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    
+                }
+
+                span{
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: themed(textColor);
+
+                    @include mobile {
+                        display: none;
+                    }
+
+                    @include tablet {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+} 

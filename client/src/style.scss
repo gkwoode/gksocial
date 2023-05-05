@@ -1,0 +1,61 @@
+*{
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+// Color Theme
+$themes: (
+    light: (
+        textColor: black,
+        textColorSoft: #555555,
+        bgColorSoft: #f0f0f0,
+        bgColor: white,
+        logoColor: darkblue,
+        borderColor: rgb(90, 90, 90, 0.3),
+        // profileLink: #252525,
+    ),
+    dark: (
+        textColor: whitesmoke,
+        textColorSoft: lightgray,
+        bgColorSoft: #252525,
+        bgColor: #101217,
+        logoColor: white,
+        borderColor: rgb(211, 211, 211, 0.3),
+        // profileLink: #f0f0f0,
+    ),
+);
+
+@mixin themify($themes) {
+    @each $theme, $map in $themes {
+      .theme-#{$theme} & {
+        $theme-map: () !global;
+        @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), "#{$key}");
+          $theme-map: map-merge(
+            $theme-map,
+            (
+              $key: $value,
+            )
+          ) !global;
+        }
+        @content;
+        $theme-map: null !global;
+      }
+    }
+  }
+  
+  @function themed($key) {
+    @return map-get($theme-map, $key);
+  }
+  
+  // Media Queries
+  @mixin mobile {
+    @media (max-width: 480px) {
+      @content;
+    }
+  }
+  @mixin tablet {
+    @media (max-width: 960px) {
+      @content;
+    }
+  }
