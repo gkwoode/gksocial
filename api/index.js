@@ -14,11 +14,12 @@ const app = express();
 // Middlewares
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Credentials", true);
+    res.header("Access-Control-Allow-Origin", "http://localhost:3001");
     next();
 });
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "http://localhost:3001"
 }));
 app.use(cookieParser());
 
@@ -51,6 +52,4 @@ app.use("/api/relationships", relationshipRoutes);
 
 app.listen(8800, () => {
     console.log("It is working");
-
-
 })

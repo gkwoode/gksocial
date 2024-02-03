@@ -26,11 +26,11 @@ function App() {
 
   const {darkMode} = useContext(DarkModeContext);
 
-  // const queryClient = new QueryClient();
+  const queryClient = new QueryClient();
 
   const Layout = () => {
     return (
-      <QueryClientProvider client={new QueryClient()}>
+      <QueryClientProvider client={queryClient}>
         <div className={`theme-${darkMode ? "dark" : "light"}`}>
           <Topbar/>
           <div style={{display: "flex"}}>
@@ -53,7 +53,7 @@ function App() {
     }
   };
 
-  const router = createBrowserRouter([
+  const router = createBrowserRouter(
     {
       path: "/",
       element: (<ProtectedRoute><Layout/></ProtectedRoute>),
@@ -72,7 +72,7 @@ function App() {
     },
     { path: "/login", element: <Login/> },
     { path: "/register", element: <Register/> },
-  ]);
+  );
 
   return (
     <div>
